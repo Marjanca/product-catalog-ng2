@@ -6,18 +6,21 @@ import { Http } from '@angular/http';
     template: require('./fetchdata.component.html')
 })
 export class FetchDataComponent {
-    public forecasts: WeatherForecast[];
+    public products: Product[];
 
     constructor(http: Http) {
-        http.get('/api/SampleData/WeatherForecasts').subscribe(result => {
-            this.forecasts = result.json();
+        http.get('/api/Product').subscribe(result => {
+            this.products = result.json().data;
         });
     }
 }
 
-interface WeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+interface Product {
+    ProductID: number;
+    Name: string;
+    Color: string;
+    Price: number;
+    Quantity: number;
+    MadeIn: string;
+    Tags: string;
 }

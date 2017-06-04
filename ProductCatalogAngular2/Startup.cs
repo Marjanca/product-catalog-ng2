@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Belgrade.SqlClient;
+using Belgrade.SqlClient.SqlDb;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Data.SqlClient;
 
 namespace ProductCatalogAngular2
 {
@@ -28,6 +31,10 @@ namespace ProductCatalogAngular2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string ConnString = Configuration["ConnectionStrings:ProductCatalog"];
+            services.AddTransient<IQueryPipe>(_ => new QueryPipe(new SqlConnection(ConnString)));
+            services.AddTransient<ICommand>(_ => new Command(new SqlConnection(ConnString)));
+
             // Add framework services.
             services.AddMvc();
         }

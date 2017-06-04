@@ -1,24 +1,30 @@
-<h1>Weather forecast</h1>
+<h1>Product Catalog</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>This component demonstrates fetching products from the server.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!products"><em>Loading...</em></p>
 
-<table class='table' *ngIf="forecasts">
+<table class='table table-striped' *ngIf="products">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>MadeIn</th>
+            <th>Tags</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.dateFormatted }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
+        <tr *ngFor="let product of products">
+            <td>{{ product.ProductID }}</td>
+            <td>{{ product.Name }}</td>
+            <td>{{ product.Color }}</td>
+            <td>{{ product.Price }}</td>
+            <td>{{ product.Quantity }}</td>
+            <td>{{ product.MadeIn }}</td>
+            <td>{{ product.Tags }}</td>
         </tr>
     </tbody>
 </table>
