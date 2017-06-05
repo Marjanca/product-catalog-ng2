@@ -28,7 +28,7 @@
             <td>{{ product.Quantity }}</td>
             <td>{{ product.MadeIn }}</td>
             <td>{{ product.Tags }}</td>
-            <td><span class='glyphicon glyphicon-file' (click)="openDetails(product.ProductID)"></span></td>
+            <td><product-details [productId] = "product.ProductID"></product-details></td>
             <td><span class='glyphicon glyphicon-pencil'></span></td>
             <td><span class='glyphicon glyphicon-remove'></span></td>
         </tr>
