@@ -7,8 +7,9 @@ import { Http } from '@angular/http';
 })
 export class ProductListComponent implements OnInit{
     public products: Product[];
+    public currentProduct: Product;
 
-    constructor(http: Http) {
+    constructor(private http: Http) {
         http.get('/api/Product').subscribe(result => {
             this.products = result.json().data;
         });
@@ -16,7 +17,15 @@ export class ProductListComponent implements OnInit{
 
     ngOnInit() {
     }
+
+    openDetails(productId: number){
+        this.http.get('/api/Product/'+ productId).subscribe(result => {
+            this.currentProduct = result.json();
+            console.log(this.currentProduct);
+        });
+    }
 }
+
 interface Product {
     productID: number;
     name: string;
