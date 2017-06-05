@@ -20,7 +20,6 @@ import { ProductDetailsComponent } from './components/productdetails/product-det
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'product-list', component: ProductListComponent },
             { path: 'product-details', component: ProductDetailsComponent },
