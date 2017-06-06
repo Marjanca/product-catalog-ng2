@@ -29,7 +29,7 @@
             <td>{{ product.MadeIn }}</td>
             <td>{{ product.Tags }}</td>
             <td><a [routerLink]="['/product-details']" [queryParams]="{ productId: product.ProductID }"><span class='glyphicon glyphicon-file'></span></a></td>
-            <td><span class='glyphicon glyphicon-pencil'></span></td>
+            <td><a [routerLink]="['/product-edit']" [queryParams]="{ productId: product.ProductID }"><span class='glyphicon glyphicon-pencil'></span></a></td>
             <td><span class='glyphicon glyphicon-remove'></span></td>
         </tr>
     </tbody>
