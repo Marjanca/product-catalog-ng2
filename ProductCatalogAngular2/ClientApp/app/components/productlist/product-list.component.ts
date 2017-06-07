@@ -16,6 +16,14 @@ export class ProductListComponent implements OnInit{
 
     ngOnInit() {
     }
+
+    deleteProduct(productId: number) {
+        console.log("deleted");
+        this.http.delete('/api/Product/'+ productId).subscribe(result => {
+            console.log("deleted");
+            console.log(this.products);
+        });
+    }
 }
 
 export class Product {
