@@ -3,7 +3,8 @@ import { Http } from '@angular/http';
 
 @Component({
     selector: 'product-list',
-    template: require('./product-list.component.html')
+    template: require('./product-list.component.html'),
+    styles: [require('./product-list.component.css')]
 })
 export class ProductListComponent implements OnInit{
     public products: Product[];
@@ -20,8 +21,11 @@ export class ProductListComponent implements OnInit{
     deleteProduct(productId: number) {
         console.log("deleted");
         this.http.delete('/api/Product/'+ productId).subscribe(result => {
-            console.log("deleted");
-            console.log(this.products);
+            this.products.forEach((p:any, i:number) => {
+                if (p.ProductID === productId) { 
+                    this.products.splice(i, 1);
+                }
+            });
         });
     }
 }
