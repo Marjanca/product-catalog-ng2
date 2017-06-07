@@ -1,36 +1,44 @@
-<h1>Product Catalog</h1>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Product Catalog</h1>
 
-<p>This component demonstrates fetching products from the server.</p>
+            <p>This component demonstrates fetching products from the server.</p>
+        </div>
+        <div class="col-md-3" style="top:50px">
+            <button type="button" class="btn btn-success pull-right" [routerLink]="['/product-add']">Add New Product</button>
+        </div>
+    </div>
+    <p *ngIf="!products"><em>Loading...</em></p>
 
-<p *ngIf="!products"><em>Loading...</em></p>
-
-<table class='table table-striped' *ngIf="products">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Color</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>MadeIn</th>
-            <th>Tags</th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of products">
-            <td>{{ product.ProductID }}</td>
-            <td>{{ product.Name }}</td>
-            <td>{{ product.Color }}</td>
-            <td>{{ product.Price }}</td>
-            <td>{{ product.Quantity }}</td>
-            <td>{{ product.MadeIn }}</td>
-            <td>{{ product.Tags }}</td>
-            <td><a [routerLink]="['/product-details']" [queryParams]="{ productId: product.ProductID }"><span class='glyphicon glyphicon-file'></span></a></td>
-            <td><a [routerLink]="['/product-edit']" [queryParams]="{ productId: product.ProductID }"><span class='glyphicon glyphicon-pencil'></span></a></td>
-            <td><a (click)="deleteProduct(product.ProductID)"><span class='glyphicon glyphicon-remove'></span></a></td>
-        </tr>
-    </tbody>
-</table>
+    <table class='table table-striped' *ngIf="products">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>MadeIn</th>
+                <th>Tags</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{ product.ProductID }}</td>
+                <td>{{ product.Name }}</td>
+                <td>{{ product.Color }}</td>
+                <td>{{ product.Price }}</td>
+                <td>{{ product.Quantity }}</td>
+                <td>{{ product.MadeIn }}</td>
+                <td>{{ product.Tags }}</td>
+                <td><a [routerLink]="['/product-details']" [queryParams]="{ productId: product.ProductID }"><span class='glyphicon glyphicon-file'></span></a></td>
+                <td><a [routerLink]="['/product-edit']" [queryParams]="{ productId: product.ProductID }"><span class='glyphicon glyphicon-pencil'></span></a></td>
+                <td><a (click)="deleteProduct(product.ProductID)"><span class='glyphicon glyphicon-remove'></span></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

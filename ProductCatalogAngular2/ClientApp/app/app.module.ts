@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductListComponent } from './components/productlist/product-list.component';
 import { ProductDetailsComponent } from './components/productdetails/product-details.component';
 import { ProductEditComponent } from './components/productedit/product-edit.component';
+import { ProductAddComponent } from './components/productadd/product-add.component';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -18,7 +19,8 @@ import { ProductEditComponent } from './components/productedit/product-edit.comp
         ProductListComponent,
         HomeComponent,
         ProductDetailsComponent,
-        ProductEditComponent
+        ProductEditComponent,
+        ProductAddComponent
     ],
     imports: [
         FormsModule,
@@ -28,6 +30,7 @@ import { ProductEditComponent } from './components/productedit/product-edit.comp
             { path: 'product-list', component: ProductListComponent },
             { path: 'product-details', component: ProductDetailsComponent },
             { path: 'product-edit', component: ProductEditComponent },
+            { path: 'product-add', component: ProductAddComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
