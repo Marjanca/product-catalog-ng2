@@ -1,35 +1,35 @@
 ﻿<div class="container" *ngIf="currentProduct">
     <div class="col-md-12">
-        <h1>Change Product's Details</h1>
+        <h1 style ="padding-bottom: 50px">Change Product's Details</h1>
     </div>
     <div class="col-md-12">
         <div class="form-group col-md-12">
-            <label for="name" class="col-md-4">Name:</label>
-            <div class="col-md-8">
+            <label for="name" class="col-md-2">Name:</label>
+            <div class="col-md-6">
                 <input name="name" type="text" class="form-control" [(ngModel)]="currentProduct.Name"/>
             </div>
         </div>
         <div class="form-group col-md-12">
-            <label for="color" class="col-md-4">Color:</label>
-            <div class="col-md-8">
+            <label for="color" class="col-md-2">Color:</label>
+            <div class="col-md-6">
                 <input name="color" type="text" class="form-control" [(ngModel)]="currentProduct.Color" />
             </div>
         </div>
         <div class="form-group col-md-12">
-            <label for="price" class="col-md-4">Price:</label>
-            <div class="col-md-8">
+            <label for="price" class="col-md-2">Price:</label>
+            <div class="col-md-6">
                 <input name="price" type="number" class="form-control" [(ngModel)]="currentProduct.Price" />
             </div>
         </div>
         <div class="form-group col-md-12">
-            <label for="quantity" class="col-md-4">Quantity:</label>
-            <div class="col-md-8">
+            <label for="quantity" class="col-md-2">Quantity:</label>
+            <div class="col-md-6">
                 <input name="quantity" type="number" class="form-control" [(ngModel)]="currentProduct.Quantity" />
             </div>
         </div>
         <div class="form-group col-md-12">
-            <label class="col-md-4"></label>
-            <div class="col-md-8">
+            <label class="col-md-2"></label>
+            <div class="col-md-6">
                 <button class="btn btn-success pull-right" (click) ="editItem()">Edit</button>
             </div>
         </div>
