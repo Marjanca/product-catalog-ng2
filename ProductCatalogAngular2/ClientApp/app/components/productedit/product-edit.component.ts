@@ -2,7 +2,8 @@
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../product-service';
-
+import Productmodel = require("../../product.model");
+import Product = Productmodel.Product;
 
 @Component({
     selector: 'product-edit',
@@ -29,14 +30,4 @@ export class ProductEditComponent implements OnInit{
     editProduct() {
         this.productService.editProduct(this.product, this.productId);
     }
-}
-
-export class Product {
-    productID: number;
-    name: string;
-    color: string;
-    price: number;
-    quantity: number;
-    madeIn: string;
-    tags: string;
 }

@@ -1,6 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../product-service';
+import Productmodel = require("../../product.model");
+import Product = Productmodel.Product;
 
 @Component({
     selector: 'product-details',
@@ -22,18 +24,5 @@ export class ProductDetailsComponent implements OnInit{
             }
         );
 
-    }
-}
-
-export class Product {
-    productID: number;
-    name: string;
-    color: string;
-    price: number;
-    quantity: number;
-    madeIn: string;
-    tags: string;
-
-    constructor(){
     }
 }

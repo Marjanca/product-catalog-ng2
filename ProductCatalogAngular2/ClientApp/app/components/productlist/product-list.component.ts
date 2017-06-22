@@ -1,6 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { ProductService } from '../../product-service';
+import Productmodel = require("../../product.model");
+import Product = Productmodel.Product;
 
 @Component({
     selector: 'product-list',
@@ -28,14 +30,4 @@ export class ProductListComponent implements OnInit{
             });
         });
     }
-}
-
-export class Product {
-    productID: number;
-    name: string;
-    color: string;
-    price: number;
-    quantity: number;
-    madeIn: string;
-    tags: string;
 }

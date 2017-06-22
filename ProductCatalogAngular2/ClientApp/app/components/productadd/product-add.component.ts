@@ -1,5 +1,7 @@
 ﻿import { Component, OnInit} from '@angular/core';
 import { ProductService } from '../../product-service';
+import Productmodel = require("../../product.model");
+import Product = Productmodel.Product;
 
 @Component({
     selector: 'product-add',
@@ -21,15 +23,4 @@ export class ProductAddComponent implements OnInit{
     addProduct() {
         this.productService.addProduct(this.product);
     }
-}
-
-export class Product {
-    productID: number;
-    name: string;
-    color: string;
-    price: number;
-    quantity: number;
-    madeIn: string;
-    tags: string;
-
 }
