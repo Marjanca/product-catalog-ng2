@@ -2,6 +2,7 @@
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import {Location} from '@angular/common';
+import { ProductService } from '../../product-service';
 
 
 @Component({
@@ -10,9 +11,11 @@ import {Location} from '@angular/common';
 })
 export class ProductEditComponent implements OnInit{
     productId: number;
-    currentProduct: Product;
+    product: Product;
+    productService: ProductService;
 
-    constructor(private http: Http, private route: ActivatedRoute, private location: Location) {
+    constructor(private http: Http, private route: ActivatedRoute, productService: ProductService) {
+        this.productService = productService;
     }
 
     ngOnInit() {
@@ -20,18 +23,12 @@ export class ProductEditComponent implements OnInit{
             this.productId = params['productId'];
         });
        this.http.get('/api/Product/'+ this.productId).subscribe(result => {
-            this.currentProduct = result.json();
-            console.log(this.currentProduct);
+            this.product = result.json();
         });
     }
 
-    editItem() {
-        let body = JSON.stringify(this.currentProduct);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers }); 
-        this.http.put('/api/Product/'+ this.productId, body, options).subscribe(result => {
-                this.location.back();
-        });
+    editProduct() {
+        this.productService.editProduct(this.product, this.productId);
     }
 }
 
@@ -43,7 +40,4 @@ export class Product {
     quantity: number;
     madeIn: string;
     tags: string;
-
-    constructor(){
-    }
 }

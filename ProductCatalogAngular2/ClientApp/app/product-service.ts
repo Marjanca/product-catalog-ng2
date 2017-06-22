@@ -18,4 +18,13 @@ export class ProductService {
             this.location.back();
         });
     }
+
+    editProduct(product: any, productId: number) {
+        let body = JSON.stringify(product);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers }); 
+        this.http.put('/api/Product/'+ productId, body, options).subscribe(result => {
+            this.location.back();
+        });
+    }
 }
