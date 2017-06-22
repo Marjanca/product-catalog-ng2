@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { UniversalModule } from 'angular2-universal';
@@ -10,6 +9,8 @@ import { ProductListComponent } from './components/productlist/product-list.comp
 import { ProductDetailsComponent } from './components/productdetails/product-details.component';
 import { ProductEditComponent } from './components/productedit/product-edit.component';
 import { ProductAddComponent } from './components/productadd/product-add.component';
+import Productservice = require("./product-service");
+import ProductService = Productservice.ProductService;
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -33,7 +34,8 @@ import { ProductAddComponent } from './components/productadd/product-add.compone
             { path: 'product-add', component: ProductAddComponent },
             { path: '**', redirectTo: 'home' }
         ])
-    ]
+    ],
+    providers: [ ProductService ]
 })
 export class AppModule {
 }

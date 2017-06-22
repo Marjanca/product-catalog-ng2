@@ -1,8 +1,5 @@
 ﻿import { Component, OnInit} from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-import { ActivatedRoute } from '@angular/router';
-import {Location} from '@angular/common';
-
+import { ProductService } from '../../product-service';
 
 @Component({
     selector: 'product-add',
@@ -10,22 +7,19 @@ import {Location} from '@angular/common';
 })
 export class ProductAddComponent implements OnInit{
     productId: number;
-    currentProduct: Product;
+    product: Product;
+    productService: ProductService;
 
-    constructor(private http: Http, private route: ActivatedRoute, private location: Location) {
+    constructor(productService: ProductService) {
+        this.productService = productService;
     }
 
     ngOnInit() {
-        this.currentProduct = new Product();
+        this.product = new Product();
     }
 
-    addItem() {
-        let body = JSON.stringify(this.currentProduct);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers }); 
-        this.http.post('/api/Product', body, options).subscribe(result => {
-                this.location.back();
-        });
+    addProduct() {
+        this.productService.addProduct(this.product);
     }
 }
 
@@ -38,6 +32,4 @@ export class Product {
     madeIn: string;
     tags: string;
 
-    constructor(){
-    }
 }
