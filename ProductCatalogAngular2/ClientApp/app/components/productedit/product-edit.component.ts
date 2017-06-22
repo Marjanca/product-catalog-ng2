@@ -1,7 +1,6 @@
-﻿import { Component, OnInit, Input, Output } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-import { ActivatedRoute, Params } from '@angular/router';
-import {Location} from '@angular/common';
+﻿import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../product-service';
 
 

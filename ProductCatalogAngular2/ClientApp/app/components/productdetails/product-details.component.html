@@ -1,4 +1,4 @@
-﻿<div class ="container" *ngIf ="currentProduct">
+﻿<div class ="container" *ngIf ="product">
 <div class="col-md-12">
     <h1 style ="padding-bottom: 50px">Product Details</h1>
 </div>
@@ -6,25 +6,25 @@
         <div class="form-group col-md-12">
             <label class="col-md-2">Name:</label>
             <div class="col-md-6">
-                <label>{{currentProduct.Name}}</label>
+                <label>{{product.Name}}</label>
             </div>
         </div>
         <div class="form-group col-md-12">
             <label class="col-md-2">Color:</label>
             <div class="col-md-6">
-                <label>{{currentProduct.Color}}</label>
+                <label>{{product.Color}}</label>
             </div>
         </div>
         <div class="form-group col-md-12">
             <label class="col-md-2">Price:</label>
             <div class="col-md-6">
-                <label>{{currentProduct.Price}}</label>
+                <label>{{product.Price}}</label>
             </div>
         </div>
         <div class="form-group col-md-12">
             <label class="col-md-2">Quantity:</label>
             <div class="col-md-6">
-                <label>{{currentProduct.Quantity}}</label>
+                <label>{{product.Quantity}}</label>
             </div>
         </div>
     </div>

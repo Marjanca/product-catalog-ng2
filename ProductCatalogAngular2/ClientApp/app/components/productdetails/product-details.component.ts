@@ -1,6 +1,6 @@
-﻿import { Component, OnInit, Input, Output } from '@angular/core';
-import { Http } from '@angular/http';
-import { ActivatedRoute, Params } from '@angular/router';
+﻿import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../../product-service';
 
 @Component({
     selector: 'product-details',
@@ -8,19 +8,20 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit{
     productId: number;
-    currentProduct: Product;
+    product: Product;
 
-    constructor(private http: Http, private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute, private productService: ProductService) {
     }
 
     ngOnInit() {
        this.route.queryParams.subscribe(params => {
             this.productId = params['productId'];
         });
-        this.http.get('/api/Product/'+ this.productId).subscribe(result => {
-            this.currentProduct = result.json();
-            console.log(this.currentProduct);
-        });
+        this.productService.getProduct(this.productId).subscribe((result) => {
+                this.product = result.json();
+            }
+        );
+
     }
 }
 
