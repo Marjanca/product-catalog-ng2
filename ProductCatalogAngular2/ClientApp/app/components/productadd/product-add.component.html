@@ -1,37 +1,78 @@
 ﻿<div class="container" *ngIf="product">
     <div class="col-md-12">
-        <h1 style ="padding-bottom: 50px">Add New Product</h1>
+        <h1 style="padding-bottom: 50px">Add New Product</h1>
     </div>
-    <div class="col-md-12">
-        <div class="form-group col-md-12">
-            <label for="name" class="col-md-2">Name:</label>
-            <div class="col-md-6">
-                <input name="name" type="text" class="form-control" [(ngModel)]="product.Name" />
+    <form #productForm="ngForm">
+        <div class="col-md-12">
+            <div class="form-group col-md-12">
+                <label for="name" class="col-md-2">Name:</label>
+                <div class="col-md-6">
+                    <input type="text" id="name" class="form-control"
+                    required
+                    name="name" [(ngModel)]="product.Name"
+                    #name="ngModel" />
+                </div>
+                <div *ngIf="name.errors && (name.dirty || name.touched)"
+                        style="color:red;">
+                    <div [hidden]="!name.errors.required">
+                        Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="name" class="col-md-2">Color:</label>
+                <div class="col-md-6">
+                    <input type="text" id="color" class="form-control"
+                    required
+                    name="color" [(ngModel)]="product.Color"
+                    #color="ngModel" />
+                </div>
+                <div *ngIf="color.errors && (color.dirty || color.touched)"
+                        style="color:red;">
+                    <div [hidden]="!color.errors.required">
+                        Color is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="price" class="col-md-2">Price:</label>
+                <div class="col-md-6">
+                    <input type="number" id="price" class="form-control"
+                           required
+                           name="price" [(ngModel)]="product.Price"
+                           #price="ngModel" />
+                </div>
+                <div *ngIf="price.errors && (price.dirty || price.touched)"
+                     style="color:red;">
+                    <div [hidden]="!price.errors.required">
+                        Price is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="price" class="col-md-2">Quantity:</label>
+                <div class="col-md-6">
+                    <input type="number" id="quantity" class="form-control"
+                           required
+                           name="quantity" [(ngModel)]="product.Quantity"
+                           #quantity="ngModel" />
+                </div>
+                <div *ngIf="quantity.errors && (quantity.dirty || quantity.touched)"
+                     style="color:red;">
+                    <div [hidden]="!quantity.errors.required">
+                        Quantity is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label class="col-md-2"></label>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-default pull-right"
+                            [disabled]="productForm.form.invalid" (click)="addProduct()">
+                        Add New Product
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="form-group col-md-12">
-            <label for="color" class="col-md-2">Color:</label>
-            <div class="col-md-6">
-                <input name="color" type="text" class="form-control" [(ngModel)]="product.Color" />
-            </div>
-        </div>
-        <div class="form-group col-md-12">
-            <label for="price" class="col-md-2">Price:</label>
-            <div class="col-md-6">
-                <input name="price" type="number" class="form-control" [(ngModel)]="product.Price" />
-            </div>
-        </div>
-        <div class="form-group col-md-12">
-            <label for="quantity" class="col-md-2">Quantity:</label>
-            <div class="col-md-6">
-                <input name="quantity" type="number" class="form-control" [(ngModel)]="product.Quantity" />
-            </div>
-        </div>
-        <div class="form-group col-md-12">
-            <label class="col-md-2"></label>
-            <div class="col-md-6">
-                <button class="btn btn-success pull-right" (click)="addProduct()">Add</button>
-            </div>
-        </div>
-    </div>
+    </form>
 </div>
